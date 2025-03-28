@@ -1,126 +1,224 @@
-import { useState } from "react"
-import "../css/CategoriesPage.css"
+"use client"
 
-const categories = [
-  {
-    id: 1,
-    name: "Eletrônicos",
-    image: "/src/assets/images/categorias/eletronicos.jpg",
-    description: "Smartphones, laptops, fones de ouvido e muito mais para manter você conectado.",
-    subcategories: ["Smartphones", "Laptops", "Áudio", "Acessórios", "Smartwatches"],
-  },
-  {
-    id: 2,
-    name: "Moda",
-    image: "/src/assets/images/categorias/moda.jpg",
-    description: "Roupas, calçados e acessórios para todos os estilos e ocasiões.",
-    subcategories: ["Camisetas", "Calças", "Vestidos", "Calçados", "Acessórios"],
-  },
-  {
-    id: 3,
-    name: "Casa e Decoração",
-    image: "/src/assets/images/categorias/casa.jpg",
-    description: "Tudo para deixar sua casa mais bonita, confortável e funcional.",
-    subcategories: ["Móveis", "Decoração", "Cozinha", "Jardim", "Iluminação"],
-  },
-  {
-    id: 4,
-    name: "Esportes",
-    image: "/src/assets/images/categorias/esportes.jpg",
-    description: "Equipamentos e roupas para praticar seu esporte favorito com conforto e qualidade.",
-    subcategories: ["Fitness", "Corrida", "Futebol", "Natação", "Ciclismo"],
-  },
-  {
-    id: 5,
-    name: "Beleza & Saúde",
-    image: "/src/assets/images/categorias/beleza.jpg",
-    description: "Produtos para cuidados pessoais, beleza e bem-estar.",
-    subcategories: ["Maquiagem", "Cuidados com a Pele", "Cabelo", "Perfumes", "Saúde"],
-  },
-  {
-    id: 6,
-    name: "Livros & Entretenimento",
-    image: "/src/assets/images/categorias/livros.jpg",
-    description: "Livros, jogos, filmes e música para sua diversão e conhecimento.",
-    subcategories: ["Livros", "Jogos", "Filmes", "Música", "Instrumentos Musicais"],
-  },
-  {
-    id: 7,
-    name: "Infantil",
-    image: "/src/assets/images/categorias/infantil.jpg",
-    description: "Brinquedos, roupas e acessórios para crianças de todas as idades.",
-    subcategories: ["Brinquedos", "Roupas", "Calçados", "Bebês", "Escola"],
-  },
-  {
-    id: 8,
-    name: "Automotivo",
-    image: "/src/assets/images/categorias/automotivo.jpg",
-    description: "Acessórios, peças e produtos para cuidar do seu veículo.",
-    subcategories: ["Acessórios", "Peças", "Ferramentas", "Áudio Automotivo", "Limpeza"],
-  },
-]
+import { useState, useEffect } from "react"
+import "../css/ContactPage.css"
 
-function CategoriesPage() {
-  const [expandedCategory, setExpandedCategory] = useState(null)
+function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
 
-  const toggleCategory = (id) => {
-    if (expandedCategory === id) {
-      setExpandedCategory(null)
-    } else {
-      setExpandedCategory(id)
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [formSteps, setFormSteps] = useState(0)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (formSteps < 5) {
+        setFormSteps(formSteps + 1)
+      }
+    }, 200)
+    return () => clearTimeout(timer)
+  }, [formSteps])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
+  }
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Nome é obrigatório"
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email é obrigatório"
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email inválido"
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Assunto é obrigatório"
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Mensagem é obrigatória"
+    } else if (formData.message.trim().length < 20) {
+      newErrors.message = "Mensagem deve ter pelo menos 20 caracteres"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (validateForm()) {
+      setIsSubmitting(true)
+
+      setTimeout(() => {
+        setIsSubmitting(false)
+        setSubmitSuccess(true)
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        })
+
+        setTimeout(() => {
+          setSubmitSuccess(false)
+        }, 5000)
+      }, 1500)
     }
   }
 
+  const renderFormGroup = (name, label, type = "text", required = false) => {
+    const isVisible = formSteps >= getStepForField(name)
+    const className = `form-group ${isVisible ? "animated fadeIn" : "hidden"}`
+
+    return (
+      <div className={className}>
+        <label htmlFor={name}>
+          {label} {required && <span className="required">*</span>}
+        </label>
+        <input
+          type={type}
+          id={name}
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          className={errors[name] ? "error" : ""}
+          required={required}
+        />
+        {errors[name] && <span className="error-message">{errors[name]}</span>}
+      </div>
+    )
+  }
+
+  const getStepForField = (name) => {
+    const steps = {
+      name: 0,
+      email: 1,
+      phone: 2,
+      subject: 3,
+      message: 4,
+    }
+    return steps[name] || 0
+  }
+
   return (
-    <div className="categories-page">
+    <div className="contact-page">
       <div className="container">
-        <div className="categories-header">
-          <h1 className="page-title">Categorias</h1>
-          <p className="page-description">Explore nossas categorias e encontre exatamente o que você procura</p>
+        <div className="contact-header">
+          <h1 className="page-title">Entre em Contato</h1>
+          <p className="page-description">
+            Estamos aqui para ajudar. Envie sua mensagem e responderemos o mais breve possível.
+          </p>
         </div>
 
-        <div className="categories-grid">
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className={`category-card ${expandedCategory === category.id ? "expanded" : ""}`}
-              onClick={() => toggleCategory(category.id)}
-            >
-              <div className="category-image-container">
-                <img src={category.image || "/placeholder.svg"} alt={category.name} className="category-image" />
-                <div className="category-overlay"></div>
-              </div>
-
-              <div className="category-content">
-                <h2 className="category-name">{category.name}</h2>
-                <p className="category-description">{category.description}</p>
-
-                <div className="subcategories">
-                  <h3 className="subcategories-title">Subcategorias</h3>
-                  <ul className="subcategories-list">
-                    {category.subcategories.map((subcategory, index) => (
-                      <li key={index}>
-                        <a
-                          href={`/produtos?categoria=${category.name}&subcategoria=${subcategory}`}
-                          className="subcategory-link"
-                        >
-                          {subcategory}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                  <a href={`/produtos?categoria=${category.name}`} className="view-all-button">
-                    Ver todos os produtos
-                  </a>
-                </div>
-              </div>
+        <div className="contact-content">
+          <div className="contact-info">
+            <div className="info-card">
+              <div className="info-icon">📍</div>
+              <h3 className="info-title">Endereço</h3>
+              <p className="info-text">Rua Exemplo, 123</p>
+              <p className="info-text">Rio de Janeiro, RJ</p>
+              <p className="info-text">CEP: 12345-678</p>
             </div>
-          ))}
+
+            <div className="info-card">
+              <div className="info-icon">📞</div>
+              <h3 className="info-title">Telefone</h3>
+              <p className="info-text">(21) 9999-9999</p>
+              <p className="info-text">(21) 8888-8888</p>
+            </div>
+
+            <div className="info-card">
+              <div className="info-icon">✉️</div>
+              <h3 className="info-title">Email</h3>
+              <p className="info-text">contato@rjrecommerce.com</p>
+              <p className="info-text">suporte@rjrecommerce.com</p>
+            </div>
+
+            <div className="info-card">
+              <div className="info-icon">🕒</div>
+              <h3 className="info-title">Horário de Atendimento</h3>
+              <p className="info-text">Segunda a Sexta: 9h às 18h</p>
+              <p className="info-text">Sábado: 9h às 13h</p>
+            </div>
+          </div>
+
+          <div className="contact-form-container">
+            {submitSuccess ? (
+              <div className="success-message">
+                <div className="success-icon">✅</div>
+                <h3 className="success-title">Mensagem Enviada!</h3>
+                <p className="success-text">Agradecemos seu contato. Responderemos em breve.</p>
+              </div>
+            ) : (
+              <form className="contact-form" onSubmit={handleSubmit}>
+                {renderFormGroup("name", "Nome Completo", "text", true)}
+                {renderFormGroup("email", "Email", "email", true)}
+                {renderFormGroup("phone", "Telefone", "tel", false)}
+                {renderFormGroup("subject", "Assunto", "text", true)}
+
+                <div className={`form-group ${formSteps >= 4 ? "animated fadeIn" : "hidden"}`}>
+                  <label htmlFor="message">
+                    Mensagem <span className="required">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={errors.message ? "error" : ""}
+                    required
+                  ></textarea>
+                  {errors.message && <span className="error-message">{errors.message}</span>}
+                </div>
+
+                <button type="submit" className="submit-button" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <span>
+                      Enviando... <i className="loading-spinner"></i>
+                    </span>
+                  ) : (
+                    "Enviar Mensagem"
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        <div className="map-container">
+          <h2 className="map-title">Nossa Localização</h2>
+          <div className="map-content">
+            <div className="map-placeholder">
+              <p>Mapa será carregado aqui</p>
+              <p className="map-note">Utilize uma API de mapas como Google Maps para integrar um mapa real</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default CategoriesPage
+export default ContactPage
 

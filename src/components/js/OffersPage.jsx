@@ -1,4 +1,10 @@
 import { useCart } from "./CartContext"
+import kitferramenta from "../../images/produtos/casa/kitferramenta.jpg"
+import panelas from "../../images/produtos/casa/panelas.jpg"
+import cadeira from "../../images/produtos/eletronicos/cadeira.jpg"
+import tenisrunner from "../../images/produtos/esportes/tenisrunner.jpg"
+import camisetabasica from "../../images/produtos/moda/camisetabasica.jpg"
+import mochila from "../../images/produtos/moda/mochila.jpg"
 import "../css/OffersPage.css"
 
 const offers = [
@@ -6,7 +12,7 @@ const offers = [
     id: 1,
     name: "Tênis Esportivo Runner",
     price: 199.9,
-    image: "/src/assets/images/produtos/tenis.jpg",
+    image: tenisrunner,
     category: "Esportes",
     discount: 15,
     description: "Tênis leve e confortável, ideal para corridas e atividades físicas.",
@@ -16,7 +22,7 @@ const offers = [
     id: 2,
     name: "Camiseta Básica Premium",
     price: 79.9,
-    image: "/src/assets/images/produtos/camiseta.jpg",
+    image: camisetabasica,
     category: "Moda",
     discount: 10,
     description: "Camiseta de algodão de alta qualidade, confortável para o dia a dia.",
@@ -26,7 +32,7 @@ const offers = [
     id: 3,
     name: "Mochila Impermeável",
     price: 159.9,
-    image: "/src/assets/images/produtos/mochila.jpg",
+    image: mochila,
     category: "Moda",
     discount: 20,
     description: "Mochila resistente à água com compartimentos para notebook e acessórios.",
@@ -36,7 +42,7 @@ const offers = [
     id: 4,
     name: "Cadeira Gamer Ergonômica",
     price: 899.9,
-    image: "/src/assets/images/produtos/cadeira.jpg",
+    image: cadeira,
     category: "Eletrônicos",
     discount: 5,
     description: "Cadeira confortável com ajustes de altura e inclinação para longas sessões.",
@@ -46,10 +52,20 @@ const offers = [
     id: 5,
     name: "Kit de Ferramentas 100 peças",
     price: 199.9,
-    image: "/src/assets/images/produtos/ferramentas.jpg",
+    image: kitferramenta,
     category: "Casa e Decoração",
     discount: 10,
     description: "Conjunto completo de ferramentas para pequenos reparos domésticos.",
+    validUntil: "2023-12-31",
+  },
+  {
+  id: 6,
+    name: "Conjunto de Panelas Antiaderente",
+    price: 299.9,
+    image: panelas,
+    category: "Casa e Decoração",
+    discount: 17,
+    description: "Kit de panelas de alta qualidade com revestimento antiaderente.",
     validUntil: "2023-12-31",
   },
 ]

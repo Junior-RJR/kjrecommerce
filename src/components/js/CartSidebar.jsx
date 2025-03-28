@@ -1,16 +1,52 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useCart } from "./CartContext"
 import "../css/CartSidebar.css"
+import { useNavigate } from "react-router-dom"
 
 function CartSidebar({ isOpen, onClose }) {
   const { cartItems, removeFromCart, updateQuantity, subtotal } = useCart()
   const [cep, setCep] = useState("")
   const [isCalculatingShipping, setIsCalculatingShipping] = useState(false)
   const [shippingCost, setShippingCost] = useState(null)
+  const [showAnimation, setShowAnimation] = useState(false)
+  const navigate = useNavigate()
+  const [couponCode, setCouponCode] = useState("")
+  const [discount, setDiscount] = useState(0)
+  const [couponError, setCouponError] = useState(null)
+  const [isApplyingCoupon, setIsApplyingCoupon] = useState(false)
 
   const freeShippingThreshold = 200
   const freeShippingProgress = Math.min((subtotal / freeShippingThreshold) * 100, 100)
   const remainingForFreeShipping = freeShippingThreshold - subtotal
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setShowAnimation(true)
+      }, 100)
+    } else {
+      setShowAnimation(false)
+    }
+
+    const savedCep = localStorage.getItem("shipping_cep")
+    if (savedCep) {
+      setCep(savedCep)
+    }
+
+    const savedCost = localStorage.getItem("shipping_cost")
+    if (savedCost) {
+      setShippingCost(Number.parseFloat(savedCost))
+    }
+
+    const savedCoupon = localStorage.getItem("coupon_code")
+    const savedDiscount = localStorage.getItem("discount_amount")
+    if (savedCoupon) {
+      setCouponCode(savedCoupon)
+    }
+    if (savedDiscount) {
+      setDiscount(Number.parseFloat(savedDiscount))
+    }
+  }, [isOpen])
 
   const handleCepChange = (e) => {
     let value = e.target.value.replace(/\D/g, "")
@@ -35,14 +71,47 @@ function CartSidebar({ isOpen, onClose }) {
       const cost = subtotal >= freeShippingThreshold ? 0 : Math.floor(Math.random() * 15) + 15
       setShippingCost(cost)
       setIsCalculatingShipping(false)
+
+      localStorage.setItem("shipping_cep", cep)
+      localStorage.setItem("shipping_cost", cost.toString())
     }, 1000)
+  }
+
+  const applyCoupon = () => {
+    if (!couponCode) return
+
+    setIsApplyingCoupon(true)
+    setCouponError("")
+
+    setTimeout(() => {
+      if (couponCode.toUpperCase() === "DESCONTO10") {
+        const discountAmount = subtotal * 0.1 // 10% de desconto
+        setDiscount(discountAmount)
+        localStorage.setItem("coupon_code", couponCode)
+        localStorage.setItem("discount_amount", discountAmount.toString())
+      } else if (couponCode.toUpperCase() === "FRETE") {
+        setShippingCost(0)
+        localStorage.setItem("shipping_cost", "0")
+        localStorage.setItem("coupon_code", couponCode)
+        localStorage.setItem("discount_amount", "0")
+      } else {
+        setCouponError("Cupom inválido ou expirado")
+      }
+
+      setIsApplyingCoupon(false)
+    }, 1000)
+  }
+
+  const handleCheckout = () => {
+    onClose()
+    navigate("/checkout")
   }
 
   if (!isOpen) return null
 
   return (
-    <div className="cart-overlay">
-      <div className="cart-sidebar">
+    <div className="cart-overlay" onClick={onClose}>
+      <div className={`cart-sidebar ${showAnimation ? "show" : ""}`} onClick={(e) => e.stopPropagation()}>
         <div className="cart-header">
           <h2 className="cart-title">Seu Carrinho</h2>
           <button className="close-button" onClick={onClose}>
@@ -61,8 +130,8 @@ function CartSidebar({ isOpen, onClose }) {
         ) : (
           <>
             <div className="cart-items">
-              {cartItems.map((item) => (
-                <div key={item.id} className="cart-item">
+              {cartItems.map((item, index) => (
+                <div key={item.id} className="cart-item" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="cart-item-image">
                     <img src={item.image || "/placeholder.jpg"} alt={item.name} />
                   </div>
@@ -95,7 +164,7 @@ function CartSidebar({ isOpen, onClose }) {
                 <div className="shipping-form">
                   <input
                     type="text"
-                    placeholder="CEP"
+                    placeholder="Digite seu CEP"
                     value={cep}
                     onChange={handleCepChange}
                     maxLength={9}
@@ -112,7 +181,7 @@ function CartSidebar({ isOpen, onClose }) {
 
                 {shippingCost !== null && (
                   <p className="shipping-result">
-                    Frete: {shippingCost === 0 ? "Grátis" : `R$ ${shippingCost.toFixed(2)}`}
+                    Frete: {shippingCost === 0 ? "Grátis! 🎉" : `R$ ${shippingCost.toFixed(2)}`}
                   </p>
                 )}
               </div>
@@ -134,6 +203,28 @@ function CartSidebar({ isOpen, onClose }) {
                 )}
               </div>
 
+              <div className="coupon-section">
+                <h3 className="coupon-title">Cupom de Desconto</h3>
+                <div className="coupon-form">
+                  <input
+                    type="text"
+                    placeholder="Digite seu cupom"
+                    className="coupon-input"
+                    value={couponCode}
+                    onChange={(e) => setCouponCode(e.target.value)}
+                  />
+                  <button
+                    className="apply-coupon-button"
+                    onClick={applyCoupon}
+                    disabled={!couponCode || isApplyingCoupon}
+                  >
+                    {isApplyingCoupon ? "Aplicando..." : "Aplicar"}
+                  </button>
+                </div>
+                {discount > 0 && <p className="coupon-success">Cupom aplicado! Desconto de R$ {discount.toFixed(2)}</p>}
+                {couponError && <p className="coupon-error">{couponError}</p>}
+              </div>
+
               <div className="cart-summary">
                 <div className="subtotal-row">
                   <span>Subtotal:</span>
@@ -141,13 +232,27 @@ function CartSidebar({ isOpen, onClose }) {
                 </div>
 
                 {shippingCost !== null && (
-                  <div className="total-row">
-                    <span>Total:</span>
-                    <span>R$ {(subtotal + shippingCost).toFixed(2)}</span>
-                  </div>
+                  <>
+                    {discount > 0 && (
+                      <div className="discount-row">
+                        <span>Desconto:</span>
+                        <span>-R$ {discount.toFixed(2)}</span>
+                      </div>
+                    )}
+                    <div className="shipping-row">
+                      <span>Frete:</span>
+                      <span>{shippingCost === 0 ? "Grátis" : `R$ ${shippingCost.toFixed(2)}`}</span>
+                    </div>
+                    <div className="total-row">
+                      <span>Total:</span>
+                      <span>R$ {(subtotal + shippingCost - discount).toFixed(2)}</span>
+                    </div>
+                  </>
                 )}
 
-                <button className="checkout-button">Finalizar Compra</button>
+                <button className="checkout-button" onClick={handleCheckout}>
+                  Finalizar Compra
+                </button>
               </div>
             </div>
           </>

@@ -10,6 +10,7 @@ import ProductsPage from "./components/js/ProductsPage"
 import CategoriesPage from "./components/js/CategoriesPage"
 import OffersPage from "./components/js/OffersPage"
 import ContactPage from "./components/js/ContactPage"
+import CheckoutPage from "./components/js/CheckoutPage"
 import { CartProvider } from "./components/js/CartContext"
 import "./components/css/App.css"
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="/categorias" element={<CategoriesPage />} />
             <Route path="/ofertas" element={<OffersPage />} />
             <Route path="/contato" element={<ContactPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
 
           <Footer />

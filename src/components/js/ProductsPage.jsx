@@ -93,7 +93,7 @@ const allProducts = [
     image: panelas,
     category: "Casa e Decoração",
     isNew: false,
-    discount: 0,
+    discount: 17,
     description: "Kit de panelas de alta qualidade com revestimento antiaderente.",
   },
   {
