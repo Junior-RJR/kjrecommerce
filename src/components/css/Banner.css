@@ -1,0 +1,147 @@
+.banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  @media (min-width: 768px) {
+    .banner {
+      height: 400px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .banner {
+      height: 500px;
+    }
+  }
+  
+  .banner-slider {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .banner-slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+  }
+  
+  .banner-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    max-width: 500px;
+  }
+  
+  @media (min-width: 768px) {
+    .banner-title {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+  }
+  
+  .banner-description {
+    font-size: 14px;
+    margin-bottom: 16px;
+    max-width: 400px;
+    opacity: 0.9;
+  }
+  
+  @media (min-width: 768px) {
+    .banner-description {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+  }
+  
+  .banner-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    width: fit-content;
+    transition: background-color 0.2s;
+  }
+  
+  .banner-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .banner-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 10;
+    transition: background-color 0.2s;
+  }
+  
+  .banner-nav-button:hover {
+    background-color: white;
+  }
+  
+  .prev-button {
+    left: 16px;
+  }
+  
+  .next-button {
+    right: 16px;
+  }
+  
+  .banner-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .banner-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s;
+  }
+  
+  .banner-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background-color: #3b82f6;
+  }
+  
+  

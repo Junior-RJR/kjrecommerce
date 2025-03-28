@@ -1,27 +1,51 @@
-import Header from "./JS/Header"
-import Banner from "./JS/Banner"
-import Categories from "./JS/Categories"
-import FeaturedProducts from "./JS/FeaturedProducts"
-import Promotions from "./JS/Promotions"
-import BestSellers from "./JS/BestSellers"
-import Newsletter from "./JS/Newsletter"
-import Footer from "./JS/Footer"
-import "./CSS/App.css"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Header from "./components/js/Header"
+import Banner from "./components/js/Banner"
+import PopularCategories from "./components/js/PopularCategories"
+import PopularProducts from "./components/js/PopularProducts"
+import Newsletter from "./components/js/Newsletter"
+import Footer from "./components/js/Footer"
+import Login from "./components/js/Login"
+import ProductsPage from "./components/js/ProductsPage"
+import CategoriesPage from "./components/js/CategoriesPage"
+import OffersPage from "./components/js/OffersPage"
+import ContactPage from "./components/js/ContactPage"
+import { CartProvider } from "./components/js/CartContext"
+import "./components/css/App.css"
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <main className="main">
-        <Banner />
-        <Categories />
-        <FeaturedProducts />
-        <Promotions />
-        <BestSellers />
-        <Newsletter />
-      </main>
-      <Footer />
-    </div>
+    <CartProvider>
+      <Router>
+        <div className="app">
+          <Header />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <main>
+                  <Banner />
+                  <div className="container">
+                    <PopularCategories />
+                    <PopularProducts />
+                    <Newsletter />
+                  </div>
+                </main>
+              }
+            />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/produtos" element={<ProductsPage />} />
+            <Route path="/categorias" element={<CategoriesPage />} />
+            <Route path="/ofertas" element={<OffersPage />} />
+            <Route path="/contato" element={<ContactPage />} />
+          </Routes>
+
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   )
 }
 
