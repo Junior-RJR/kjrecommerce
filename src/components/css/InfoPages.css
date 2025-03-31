@@ -1,0 +1,847 @@
+.info-page-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .info-page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .info-page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, #4a6cf7);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .info-page-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color, #4a6cf7), var(--secondary-color, #f97316));
+    border-radius: 2px;
+  }
+  
+  .info-page-divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color, #4a6cf7), var(--secondary-color, #f97316));
+    margin: 1rem auto;
+    border-radius: 2px;
+  }
+  
+  .info-page-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .info-page-content {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .info-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .info-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color, #4a6cf7);
+    position: relative;
+    padding-left: 1rem;
+    border-left: 4px solid var(--secondary-color, #f97316);
+  }
+  
+  /* Estilos para a página Sobre Nós */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .about-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .about-image img:hover {
+    transform: scale(1.02);
+  }
+  
+  .values-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .value-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .value-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .values-list {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .values-list li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .team-member {
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-5px);
+  }
+  
+  .member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--primary-color, #4a6cf7);
+  }
+  
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .team-member h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+  }
+  
+  .member-role {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    min-width: 200px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color, #4a6cf7);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .responsibility-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .responsibility-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+  
+  /* Estilos para a página de Política de Privacidade */
+  .privacy-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .privacy-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .privacy-card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .privacy-card li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .usage-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .usage-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .usage-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color, #4a6cf7);
+    font-weight: bold;
+  }
+  
+  .sharing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .sharing-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sharing-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .sharing-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f0f4ff;
+    border-left: 4px solid var(--primary-color, #4a6cf7);
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .cookies-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .cookie-type {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .cookie-type h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .rights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .right-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .right-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .right-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .right-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .rights-note {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  .security-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .security-list li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .contact-info {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .contact-info p {
+    margin-bottom: 0.8rem;
+  }
+  
+  .contact-info a {
+    color: var(--primary-color, #4a6cf7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos para a página de Termos e Condições */
+  .terms-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .terms-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .terms-card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.8rem;
+  }
+  
+  .terms-card li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .liability-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .liability-list li {
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Estilos para a página de Formas de Pagamento */
+  .payment-intro {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .payment-method-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .payment-method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payment-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .payment-method-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .card-brands,
+  .wallet-brands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .card-brand,
+  .wallet-brand {
+    background-color: #e9ecef;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #495057;
+  }
+  
+  .payment-details {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .payment-note {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  .installment-table-container {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .installment-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .installment-table th,
+  .installment-table td {
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+  }
+  
+  .installment-table th {
+    background-color: var(--primary-color, #4a6cf7);
+    color: white;
+  }
+  
+  .installment-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .installment-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  .security-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .security-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .security-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .security-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .faq-container {
+    margin-top: 1.5rem;
+  }
+  
+  .faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .faq-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  /* Estilos para a página de Política de Entrega */
+  .delivery-intro {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .delivery-table-container {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .delivery-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .delivery-table th,
+  .delivery-table td {
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+  }
+  
+  .delivery-table th {
+    background-color: var(--primary-color, #4a6cf7);
+    color: white;
+  }
+  
+  .delivery-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .delivery-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-style: italic;
+  }
+  
+  .delivery-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .delivery-method-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .delivery-method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .delivery-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .delivery-method-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .delivery-details {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .shipping-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .shipping-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .shipping-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .shipping-card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.8rem;
+  }
+  
+  .shipping-card li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .tracking-steps {
+    margin-top: 1.5rem;
+  }
+  
+  .tracking-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color, #4a6cf7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .step-content {
+    flex-grow: 1;
+  }
+  
+  .step-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .delivery-alert {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  .delivery-alert h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #856404;
+  }
+  
+  .delivery-alert ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .delivery-alert li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .receipt-tips {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .receipt-tips h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color, #4a6cf7);
+  }
+  
+  .receipt-tips ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .receipt-tips li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .info-page-title {
+      font-size: 2rem;
+    }
+  
+    .section-title {
+      font-size: 1.5rem;
+    }
+  
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-image {
+      order: -1;
+      margin-bottom: 1.5rem;
+    }
+  
+    .values-container,
+    .team-grid,
+    .sharing-container,
+    .rights-grid,
+    .payment-methods-grid,
+    .delivery-methods-grid,
+    .shipping-info {
+      grid-template-columns: 1fr;
+    }
+  
+    .stat-item {
+      width: 50%;
+      padding: 1rem;
+    }
+  
+    .installment-table th,
+    .installment-table td,
+    .delivery-table th,
+    .delivery-table td {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .info-page-title {
+      font-size: 1.8rem;
+    }
+  
+    .section-title {
+      font-size: 1.3rem;
+    }
+  
+    .info-page-content {
+      padding: 1.5rem;
+    }
+  
+    .stat-item {
+      width: 100%;
+    }
+  
+    .stat-number {
+      font-size: 2rem;
+    }
+  
+    .tracking-step {
+      flex-direction: column;
+    }
+  
+    .step-number {
+      margin-bottom: 0.8rem;
+    }
+  }
+  
+  

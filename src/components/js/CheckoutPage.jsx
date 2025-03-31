@@ -349,7 +349,6 @@ function CheckoutPage() {
         <div className="checkout-content">
           <div className="checkout-form-container">
             <form className="checkout-form" onSubmit={handleSubmit}>
-              {/* Etapa 1: Dados Pessoais */}
               {activeStep === 1 && (
                 <div className="checkout-step-content">
                   <h2 className="step-title">Dados Pessoais</h2>
@@ -419,7 +418,6 @@ function CheckoutPage() {
                 </div>
               )}
 
-              {/* Etapa 2: Endereço */}
               {activeStep === 2 && (
                 <div className="checkout-step-content">
                   <h2 className="step-title">Endereço de Entrega</h2>
@@ -536,7 +534,6 @@ function CheckoutPage() {
                 </div>
               )}
 
-              {/* Etapa 3: Pagamento */}
               {activeStep === 3 && (
                 <div className="checkout-step-content">
                   <h2 className="step-title">Forma de Pagamento</h2>
@@ -920,10 +917,10 @@ function CheckoutPage() {
               <h3>Precisa de ajuda?</h3>
               <p>Entre em contato com nosso suporte:</p>
               <p>
-                <strong>Email:</strong> suporte@rjrecommerce.com
+                <strong>Email:</strong> suporte@kjrdev.com.br
               </p>
               <p>
-                <strong>Telefone:</strong> (21) 9999-9999
+                <strong>Telefone:</strong> (11) 94625-2220
               </p>
               <p>
                 <strong>Horário:</strong> Seg-Sex, 9h às 18h
