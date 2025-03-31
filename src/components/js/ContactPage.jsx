@@ -89,23 +89,23 @@ function ContactPage() {
             <div className="info-card">
               <div className="info-icon">📍</div>
               <h3 className="info-title">Endereço</h3>
-              <p className="info-text">Rua Exemplo, 123</p>
-              <p className="info-text">Rio de Janeiro, RJ</p>
-              <p className="info-text">CEP: 12345-678</p>
+              <p className="info-text">Av Capuava</p>
+              <p className="info-text">Santo André, SP</p>
+              <p className="info-text">CEP: 09111-000</p>
             </div>
 
             <div className="info-card">
               <div className="info-icon">📞</div>
               <h3 className="info-title">Telefone</h3>
-              <p className="info-text">(21) 9999-9999</p>
-              <p className="info-text">(21) 8888-8888</p>
+              <p className="info-text">(11) 94625-2220</p>
+              {/* <p className="info-text">(21) 8888-8888</p> */}
             </div>
 
             <div className="info-card">
               <div className="info-icon">✉️</div>
               <h3 className="info-title">Email</h3>
-              <p className="info-text">contato@rjrecommerce.com</p>
-              <p className="info-text">suporte@rjrecommerce.com</p>
+              <p className="info-text">suporte@kjrdev.com.br</p>
+              <p className="info-text">rogeriojunior@kjrdev.com.br</p>
             </div>
 
             <div className="info-card">
@@ -194,7 +194,7 @@ function ContactPage() {
           <h2 className="map-title">Nossa Localização</h2>
           <div className="map-placeholder">
             <p>Mapa será carregado aqui</p>
-            <p className="map-note">Utilize uma API de mapas como Google Maps para integrar um mapa real</p>
+            {/* <p className="map-note">Utilize uma API de mapas como Google Maps para integrar um mapa real</p> */}
           </div>
         </div>
       </div>

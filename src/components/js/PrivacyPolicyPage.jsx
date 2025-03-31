@@ -14,7 +14,7 @@ function PrivacyPolicyPage() {
           <section className="info-section">
             <h2 className="section-title">Introdução</h2>
             <p>
-              A RJR Ecommerce valoriza a privacidade dos seus usuários e está comprometida em proteger suas informações
+              A KJR Ecommerce valoriza a privacidade dos seus usuários e está comprometida em proteger suas informações
               pessoais. Esta Política de Privacidade descreve como coletamos, usamos, compartilhamos e protegemos suas
               informações quando você utiliza nosso site e serviços.
             </p>
@@ -185,7 +185,7 @@ function PrivacyPolicyPage() {
             </div>
             <p className="rights-note">
               Para exercer qualquer um desses direitos, entre em contato conosco através do e-mail:{" "}
-              <a href="mailto:privacidade@rjrecommerce.com">privacidade@rjrecommerce.com</a>
+              <a href="mailto:privacidade@kjrdev.com.br">privacidade@kjrdev.com.br</a>
             </p>
           </section>
 
@@ -230,13 +230,13 @@ function PrivacyPolicyPage() {
             </p>
             <div className="contact-info">
               <p>
-                <strong>E-mail:</strong> <a href="mailto:privacidade@rjrecommerce.com">privacidade@rjrecommerce.com</a>
+                <strong>E-mail:</strong> <a href="mailto:rogeriojunior@kjrdev.com.br">rogeriojunior@kjrdev.com.br</a>
               </p>
               <p>
-                <strong>Telefone:</strong> (21) 9999-9999
+                <strong>Telefone:</strong> (11) 94625-2220
               </p>
               <p>
-                <strong>Endereço:</strong> Rua Exemplo, 123, Rio de Janeiro, RJ, CEP: 12345-678
+                <strong>Endereço:</strong>  Av Capuava, Santo André, SP, CEP: 09111-000
               </p>
             </div>
           </section>

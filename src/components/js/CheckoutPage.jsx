@@ -160,10 +160,10 @@ function CheckoutPage() {
 
     setFormData({
       ...formData,
-      address: "Rua Exemplo",
-      neighborhood: "Bairro Teste",
-      city: "Rio de Janeiro",
-      state: "RJ",
+      address: "Av Capuava",
+      neighborhood: "Vila Homero Thon",
+      city: "Santo André",
+      state: "SP",
     })
   }
 

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useCart } from "./CartContext"
 import luminaria from "../../images/produtos/casa/luminaria.jpg"
 import panelas from "../../images/produtos/casa/panelas.jpg"
@@ -99,9 +100,14 @@ const products = [
 function PopularProducts() {
   const { addToCart } = useCart()
   const [favorites, setFavorites] = useState([])
+  const navigate = useNavigate()
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]))
+  }
+
+  const handleProductClick = (productId) => {
+    navigate(`/produto/${productId}`)
   }
 
   const handleAddToCart = (product) => {
@@ -126,36 +132,42 @@ function PopularProducts() {
           const discountedPrice = product.discount > 0 ? product.price * (1 - product.discount / 100) : product.price
 
           return (
-            <div key={product.id} className="product-card">
-              <div className="product-image-container">
-                <img src={product.image || "/placeholder.svg"} alt={product.name} className="product-image" />
-                <button
-                  className={`favorite-button ${favorites.includes(product.id) ? "active" : ""}`}
-                  onClick={() => toggleFavorite(product.id)}
-                >
-                  {favorites.includes(product.id) ? "❤️" : "🤍"}
-                </button>
-
-                {product.isNew && <span className="product-badge new-badge">Novo</span>}
-
-                {product.discount > 0 && <span className="product-badge discount-badge">-{product.discount}%</span>}
-              </div>
-
-              <div className="product-info">
-                <h3 className="product-name">{product.name}</h3>
-                <p className="product-category">{product.category}</p>
-
-                <div className="product-price">
-                  <span className="current-price">R$ {discountedPrice.toFixed(2)}</span>
-                  {product.discount > 0 && <span className="original-price">R$ {product.price.toFixed(2)}</span>}
+            <div key={product.id} className="product-card" onClick={() => handleProductClick(product.id)}>
+                <div className="product-image-container">
+                    <img src={product.image || "/placeholder.svg"} alt={product.name} className="product-image" />
+        
+                    <button
+                        className={`favorite-button ${favorites.includes(product.id) ? "active" : ""}`}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            toggleFavorite(product.id);
+                        }}
+                    >
+                        {favorites.includes(product.id) ? "❤️" : "🤍"}
+                    </button>
+        
+                    {product.isNew && <span className="product-badge new-badge">Novo</span>}
+                    {product.discount > 0 && <span className="product-badge discount-badge">-{product.discount}%</span>}
                 </div>
-
-                <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
-                  🛒 Adicionar
-                </button>
-              </div>
+        
+                <div className="product-info">
+                    <h3 className="product-name">{product.name}</h3>
+                    <p className="product-category">{product.category}</p>
+        
+                    <div className="product-price">
+                        <span className="current-price">R$ {discountedPrice.toFixed(2)}</span>
+                        {product.discount > 0 && <span className="original-price">R$ {product.price.toFixed(2)}</span>}
+                    </div>
+        
+                    <button className="add-to-cart-button" onClick={(e) => {
+                        e.stopPropagation();
+                        handleAddToCart(product);
+                    }}>
+                        🛒 Adicionar
+                    </button>
+                </div>
             </div>
-          )
+        )
         })}
       </div>
     </section>

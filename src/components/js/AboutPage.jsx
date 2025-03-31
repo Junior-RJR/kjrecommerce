@@ -18,8 +18,8 @@ function AboutPage() {
             <div className="about-grid">
               <div className="about-text">
                 <p>
-                  Fundada em 2015, a RJR Ecommerce nasceu da paixão por oferecer produtos de qualidade com preços
-                  acessíveis. O que começou como uma pequena loja online no Rio de Janeiro, rapidamente se expandiu para
+                  Fundada em 2015, a KJR Ecommerce nasceu da paixão por oferecer produtos de qualidade com preços
+                  acessíveis. O que começou como uma pequena loja online em São Paulo, rapidamente se expandiu para
                   se tornar uma referência nacional em e-commerce.
                 </p>
                 <p>
@@ -126,7 +126,7 @@ function AboutPage() {
           <section className="info-section">
             <h2 className="section-title">Responsabilidade Social</h2>
             <p>
-              Na RJR Ecommerce, acreditamos que o sucesso empresarial deve andar lado a lado com a responsabilidade
+              Na KJR Ecommerce, acreditamos que o sucesso empresarial deve andar lado a lado com a responsabilidade
               social. Por isso, desenvolvemos diversas iniciativas:
             </p>
             <ul className="responsibility-list">

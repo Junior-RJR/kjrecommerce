@@ -14,7 +14,7 @@ function TermsPage() {
           <section className="info-section">
             <h2 className="section-title">1. Aceitação dos Termos</h2>
             <p>
-              Ao acessar e utilizar o site da RJR Ecommerce, você concorda em cumprir e estar vinculado a estes Termos e
+              Ao acessar e utilizar o site da KJR Ecommerce, você concorda em cumprir e estar vinculado a estes Termos e
               Condições. Se você não concordar com qualquer parte destes termos, solicitamos que não utilize nosso site
               ou serviços.
             </p>
@@ -106,7 +106,7 @@ function TermsPage() {
             <p>
               O site e todo o seu conteúdo, recursos e funcionalidades (incluindo, mas não limitado a, todas as
               informações, software, texto, exibições, imagens, vídeo e áudio, e o design, seleção e arranjo dos mesmos)
-              são de propriedade da RJR Ecommerce, seus licenciadores ou outros provedores de tal material e são
+              são de propriedade da KJR Ecommerce, seus licenciadores ou outros provedores de tal material e são
               protegidos por leis de direitos autorais, marcas registradas, patentes, segredos comerciais e outras leis
               de propriedade intelectual.
             </p>
@@ -120,7 +120,7 @@ function TermsPage() {
           <section className="info-section">
             <h2 className="section-title">5. Limitação de Responsabilidade</h2>
             <p>
-              Em nenhuma circunstância a RJR Ecommerce, seus diretores, funcionários, agentes, parceiros ou fornecedores
+              Em nenhuma circunstância a KJR Ecommerce, seus diretores, funcionários, agentes, parceiros ou fornecedores
               serão responsáveis por quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos,
               incluindo, sem limitação, perda de lucros, dados, uso, boa vontade ou outras perdas intangíveis,
               resultantes de:
@@ -133,14 +133,14 @@ function TermsPage() {
             </ul>
             <p>
               Esta limitação de responsabilidade se aplica independentemente da base legal da reivindicação e mesmo se a
-              RJR Ecommerce tiver sido avisada da possibilidade de tais danos.
+              KJR Ecommerce tiver sido avisada da possibilidade de tais danos.
             </p>
           </section>
 
           <section className="info-section">
             <h2 className="section-title">6. Indenização</h2>
             <p>
-              Você concorda em indenizar, defender e isentar a RJR Ecommerce, suas subsidiárias, afiliadas, parceiros,
+              Você concorda em indenizar, defender e isentar a KJR Ecommerce, suas subsidiárias, afiliadas, parceiros,
               funcionários, diretores, agentes, contratados e licenciadores de e contra quaisquer reclamações, danos,
               obrigações, perdas, responsabilidades, custos ou dívidas e despesas (incluindo, mas não limitado a
               honorários advocatícios) decorrentes de:
@@ -163,7 +163,7 @@ function TermsPage() {
             </p>
             <p>
               Qualquer disputa, controvérsia ou reivindicação decorrente ou relacionada a estes Termos e Condições será
-              submetida à jurisdição exclusiva dos tribunais da cidade do Rio de Janeiro, Brasil.
+              submetida à jurisdição exclusiva dos tribunais da cidade de São Paulo, Brasil.
             </p>
           </section>
 
@@ -187,7 +187,7 @@ function TermsPage() {
               <h3>9.1 Acordo Integral</h3>
               <p>
                 Estes Termos e Condições, juntamente com nossa Política de Privacidade e quaisquer outros acordos
-                expressamente incorporados por referência, constituem o acordo integral entre você e a RJR Ecommerce em
+                expressamente incorporados por referência, constituem o acordo integral entre você e a KJR Ecommerce em
                 relação ao uso do site.
               </p>
             </div>
@@ -195,7 +195,7 @@ function TermsPage() {
             <div className="terms-card">
               <h3>9.2 Renúncia e Separabilidade</h3>
               <p>
-                A falha da RJR Ecommerce em exercer ou fazer cumprir qualquer direito ou disposição destes Termos não
+                A falha da KJR Ecommerce em exercer ou fazer cumprir qualquer direito ou disposição destes Termos não
                 constituirá uma renúncia a tal direito ou disposição. Se qualquer disposição destes Termos for
                 considerada inválida, ilegal ou inexequível por qualquer motivo, tal disposição será limitada ou
                 eliminada na extensão mínima necessária, e as disposições restantes continuarão em pleno vigor e efeito.
@@ -206,7 +206,7 @@ function TermsPage() {
               <h3>9.3 Cessão</h3>
               <p>
                 Você não pode ceder ou transferir estes Termos, por força de lei ou de outra forma, sem o consentimento
-                prévio por escrito da RJR Ecommerce. Qualquer tentativa de cessão ou transferência sem tal consentimento
+                prévio por escrito da KJR Ecommerce. Qualquer tentativa de cessão ou transferência sem tal consentimento
                 será nula e sem efeito.
               </p>
             </div>
@@ -226,13 +226,13 @@ function TermsPage() {
             <p>Se você tiver alguma dúvida sobre estes Termos e Condições, entre em contato conosco:</p>
             <div className="contact-info">
               <p>
-                <strong>E-mail:</strong> <a href="mailto:termos@rjrecommerce.com">termos@rjrecommerce.com</a>
+                <strong>E-mail:</strong> <a href="mailto:rogeriojunior@kjrdev.com.br">rogeriojunior@kjrdev.com.br</a>
               </p>
               <p>
-                <strong>Telefone:</strong> (21) 9999-9999
+                <strong>Telefone:</strong> (11) 94625-2220
               </p>
               <p>
-                <strong>Endereço:</strong> Rua Exemplo, 123, Rio de Janeiro, RJ, CEP: 12345-678
+                <strong>Endereço:</strong> Av Capuava, Santo André, SP, CEP: 09111-000
               </p>
             </div>
           </section>

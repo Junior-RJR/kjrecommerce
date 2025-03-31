@@ -13,7 +13,7 @@ function DeliveryPolicyPage() {
           <section className="info-section">
             <h2 className="section-title">Prazos de Entrega</h2>
             <p className="delivery-intro">
-              A RJR Ecommerce trabalha com os melhores parceiros logísticos para garantir que seu pedido chegue no menor
+              A KJR Ecommerce trabalha com os melhores parceiros logísticos para garantir que seu pedido chegue no menor
               tempo possível e em perfeitas condições. Os prazos de entrega variam de acordo com a região de destino e a
               modalidade de envio escolhida.
             </p>
@@ -115,7 +115,7 @@ function DeliveryPolicyPage() {
                 <div className="delivery-icon pickup-icon">🏪</div>
                 <h3>Retirada na Loja</h3>
                 <p>
-                  Disponível apenas para clientes da cidade do Rio de Janeiro. Retire seu pedido em uma de nossas lojas
+                  Disponível apenas para clientes da cidade de São Paulo. Retire seu pedido em uma de nossas lojas
                   físicas sem custo de frete.
                 </p>
                 <p className="delivery-details">
@@ -165,7 +165,7 @@ function DeliveryPolicyPage() {
           <section className="info-section">
             <h2 className="section-title">Rastreamento</h2>
             <p>
-              Todos os pedidos enviados pela RJR Ecommerce possuem código de rastreamento, que é enviado por e-mail
+              Todos os pedidos enviados pela KJR Ecommerce possuem código de rastreamento, que é enviado por e-mail
               assim que o produto é despachado. Você também pode acompanhar o status do seu pedido através da sua conta
               em nosso site, na seção "Meus Pedidos".
             </p>
@@ -265,10 +265,10 @@ function DeliveryPolicyPage() {
             </p>
             <div className="contact-info">
               <p>
-                <strong>E-mail:</strong> <a href="mailto:entregas@rjrecommerce.com">entregas@rjrecommerce.com</a>
+                <strong>E-mail:</strong> <a href="mailto:entregas@kjrdev.com.br">entregas@kjrdev.com.br</a>
               </p>
               <p>
-                <strong>Telefone:</strong> (21) 9999-9999
+                <strong>Telefone:</strong> (11) 94625-2220
               </p>
               <p>
                 <strong>Horário de atendimento:</strong> Segunda a sexta, das 8h às 18h

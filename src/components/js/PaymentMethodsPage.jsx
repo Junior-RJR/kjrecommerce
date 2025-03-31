@@ -13,7 +13,7 @@ function PaymentMethodsPage() {
           <section className="info-section">
             <h2 className="section-title">Opções de Pagamento Disponíveis</h2>
             <p className="payment-intro">
-              Na RJR Ecommerce, oferecemos diversas opções de pagamento para tornar sua experiência de compra mais
+              Na KJR Ecommerce, oferecemos diversas opções de pagamento para tornar sua experiência de compra mais
               conveniente. Confira abaixo todas as formas de pagamento aceitas em nossa loja:
             </p>
 
@@ -227,10 +227,10 @@ function PaymentMethodsPage() {
             </p>
             <div className="contact-info">
               <p>
-                <strong>E-mail:</strong> <a href="mailto:financeiro@rjrecommerce.com">financeiro@rjrecommerce.com</a>
+                <strong>E-mail:</strong> <a href="mailto:financeiro@kjrdev.com.br">financeiro@kjrdev.com.br</a>
               </p>
               <p>
-                <strong>Telefone:</strong> (21) 9999-9999
+                <strong>Telefone:</strong> (11) 94625-2220
               </p>
               <p>
                 <strong>Horário de atendimento:</strong> Segunda a sexta, das 8h às 18h
