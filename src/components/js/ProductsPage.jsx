@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { useCart } from "./CartContext"
 import cafeteira from "../../images/produtos/casa/cafeteira.jpg"
 import kitferramenta from "../../images/produtos/casa/kitferramenta.jpg"
@@ -157,7 +158,32 @@ function ProductsPage() {
   const [sortBy, setSortBy] = useState("featured")
   const [priceRange, setPriceRange] = useState([0, 2000])
   const [searchTerm, setSearchTerm] = useState("")
+  const [showFilters, setShowFilters] = useState(false)
   const { addToCart } = useCart()
+  const [isScrolling, setIsScrolling] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const productCards = document.querySelectorAll(".product-card")
+    productCards.forEach((card, index) => {
+      setTimeout(
+        () => {
+          card.style.opacity = "1"
+          card.style.transform = "translateY(0)"
+        },
+        100 + index * 50,
+      )
+    })
+  }, [products])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     let filteredProducts = [...allProducts]
@@ -202,19 +228,24 @@ function ProductsPage() {
       case "discount":
         filteredProducts.sort((a, b) => b.discount - a.discount)
         break
-      default: // featured
-        // Manter a ordem original
+      default:
         break
     }
 
     setProducts(filteredProducts)
   }, [selectedCategory, sortBy, priceRange, searchTerm])
 
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (e, id) => {
+    e.stopPropagation() 
     setFavorites((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]))
   }
 
-  const handleAddToCart = (product) => {
+  const toggleFilters = () => {
+    setShowFilters(!showFilters)
+  }
+
+  const handleAddToCart = (e, product) => {
+    e.stopPropagation() 
     addToCart({
       id: product.id,
       name: product.name,
@@ -230,6 +261,10 @@ function ProductsPage() {
     setPriceRange(newRange)
   }
 
+  const handleProductClick = (productId) => {
+    navigate(`/produto/${productId}`)
+  }
+
   return (
     <div className="products-page">
       <div className="container">
@@ -238,8 +273,15 @@ function ProductsPage() {
           <p className="page-description">Explore nossa coleção completa de produtos de alta qualidade</p>
         </div>
 
+        <div className="mobile-filters-toggle">
+          <button onClick={toggleFilters} className="toggle-filters-button">
+            {showFilters ? "Esconder Filtros" : "Mostrar Filtros"}
+            <span className="toggle-icon">{showFilters ? "▲" : "▼"}</span>
+          </button>
+        </div>
+
         <div className="products-layout">
-          <aside className="filters-sidebar">
+          <aside className={`filters-sidebar ${showFilters ? "show-mobile" : ""}`}>
             <div className="filter-section">
               <h3 className="filter-title">Categorias</h3>
               <ul className="category-list">
@@ -313,6 +355,19 @@ function ProductsPage() {
                 <input type="checkbox" /> Em estoque
               </label>
             </div>
+
+            <button
+              className="reset-filters-button mobile-only"
+              onClick={() => {
+                setSelectedCategory("Todos")
+                setPriceRange([0, 2000])
+                setSearchTerm("")
+                setSortBy("featured")
+                setShowFilters(false)
+              }}
+            >
+              Aplicar Filtros
+            </button>
           </aside>
 
           <div className="products-content">
@@ -356,17 +411,22 @@ function ProductsPage() {
               </div>
             ) : (
               <div className="products-grid">
-                {products.map((product) => {
+                {products.map((product, index) => {
                   const discountedPrice =
                     product.discount > 0 ? product.price * (1 - product.discount / 100) : product.price
 
                   return (
-                    <div key={product.id} className="product-card">
+                    <div
+                      key={product.id}
+                      className="product-card"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                      onClick={() => handleProductClick(product.id)}
+                    >
                       <div className="product-image-container">
                         <img src={product.image || "/placeholder.svg"} alt={product.name} className="product-image" />
                         <button
                           className={`favorite-button ${favorites.includes(product.id) ? "active" : ""}`}
-                          onClick={() => toggleFavorite(product.id)}
+                          onClick={(e) => toggleFavorite(e, product.id)}
                         >
                           {favorites.includes(product.id) ? "❤️" : "🤍"}
                         </button>
@@ -390,7 +450,7 @@ function ProductsPage() {
                           )}
                         </div>
 
-                        <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
+                        <button className="add-to-cart-button" onClick={(e) => handleAddToCart(e, product)}>
                           🛒 Adicionar ao Carrinho
                         </button>
                       </div>
@@ -402,6 +462,12 @@ function ProductsPage() {
           </div>
         </div>
       </div>
+
+      {isScrolling && (
+        <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          ↑
+        </button>
+      )}
     </div>
   )
 }

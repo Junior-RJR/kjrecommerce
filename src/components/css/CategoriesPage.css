@@ -58,7 +58,7 @@
   
   .category-image-container {
     position: relative;
-    height: 200px;
+    height: auto;
     overflow: hidden;
   }
   

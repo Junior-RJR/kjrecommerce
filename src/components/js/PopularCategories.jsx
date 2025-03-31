@@ -56,7 +56,8 @@ function PopularCategories() {
 
       <div className="categories-grid">
         {categories.map((category) => (
-          <a key={category.id} href={`/categoria/${category.slug}`} className="category-card">
+          // <a key={category.id} href={`/categoria/${category.slug}`} className="category-card">
+          <a key={category.id} href={`/produtos`} className="category-card">
             <div className="category-image-container">
               <img src={category.image || "/placeholder.svg"} alt={category.name} className="category-image" />
               <div className="category-overlay"></div>

@@ -20,6 +20,7 @@ import PaymentMethodsPage from "./components/js/PaymentMethodsPage"
 import DeliveryPolicyPage from "./components/js/DeliveryPolicyPage"
 import SummerCollectionPage from "./components/js/SummerCollectionPage"
 import ExclusiveCollectionPage from "./components/js/ExclusiveCollectionPage"
+import ProductDetailPage from "./components/js/ProductDetailPage"
 
 function App() {
   return (
@@ -43,24 +44,22 @@ function App() {
               }
             />
 
-             {/* Páginas principais */}
-              <Route path="/produtos" element={<ProductsPage />} />
-              <Route path="/categorias" element={<CategoriesPage />} />
-              <Route path="/ofertas" element={<OffersPage />} />
-              <Route path="/contato" element={<ContactPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/produtos" element={<ProductsPage />} />
+            <Route path="/categorias" element={<CategoriesPage />} />
+            <Route path="/ofertas" element={<OffersPage />} />
+            <Route path="/contato" element={<ContactPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/produto/:productId" element={<ProductDetailPage />} />
 
-              {/* Páginas informativas */}
-              <Route path="/sobre" element={<AboutPage />} />
-              <Route path="/privacidade" element={<PrivacyPolicyPage />} />
-              <Route path="/termos" element={<TermsPage />} />
-              <Route path="/pagamentos" element={<PaymentMethodsPage />} />
-              <Route path="/entregas" element={<DeliveryPolicyPage />} />
+            <Route path="/sobre" element={<AboutPage />} />
+            <Route path="/privacidade" element={<PrivacyPolicyPage />} />
+            <Route path="/termos" element={<TermsPage />} />
+            <Route path="/pagamentos" element={<PaymentMethodsPage />} />
+            <Route path="/entregas" element={<DeliveryPolicyPage />} />
 
-              {/* Páginas de coleções */}
-              <Route path="/colecao/verao" element={<SummerCollectionPage />} />
-              <Route path="/colecao/exclusiva" element={<ExclusiveCollectionPage />} />
+            <Route path="/colecao/verao" element={<SummerCollectionPage />} />
+            <Route path="/colecao/exclusiva" element={<ExclusiveCollectionPage />} />
           </Routes>
 
           <Footer />

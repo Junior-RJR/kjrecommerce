@@ -113,9 +113,9 @@ function ExclusiveCollectionPage() {
           <div className="products-grid">
             {products.map((product) => (
               <div key={product.id} className="exclusive-product-card">
-                {product.discount > 0 && <div className="discount-badge">-{product.discount}%</div>}
-                <div className="stock-badge">Apenas {product.stock} unidades</div>
-                <div className="product-image">
+                {product.discount > 0 && <div className="discount-exclusive-badge">-{product.discount}%</div>}
+                <div className="stock-exclusive-badge">Apenas {product.stock} unidades</div>
+                <div className="product-exclusive-image">
                   <img src={product.image || "/placeholder.svg"} alt={product.name} />
                 </div>
                 <div className="product-info">

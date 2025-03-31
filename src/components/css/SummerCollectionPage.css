@@ -126,7 +126,7 @@
     color: var(--text-secondary);
   }
   
-  .price-slider {
+  .price-summer-slider {
     width: 100%;
     -webkit-appearance: none;
     height: 6px;
@@ -135,7 +135,7 @@
     outline: none;
   }
   
-  .price-slider::-webkit-slider-thumb {
+  .price-summer-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 18px;
     height: 18px;
@@ -221,8 +221,8 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
   
-  .discount-badge,
-  .new-badge {
+  .discount-summer-badge,
+  .new-summer-badge {
     position: absolute;
     top: 10px;
     padding: 5px 10px;
@@ -232,31 +232,31 @@
     z-index: 1;
   }
   
-  .discount-badge {
+  .discount-summer-badge {
     left: 10px;
     background-color: #ff5252;
     color: white;
   }
   
-  .new-badge {
+  .new-summer-badge {
     right: 10px;
     background-color: var(--primary);
     color: white;
   }
   
-  .product-image {
+  .product-summer-image {
     height: 200px;
     overflow: hidden;
   }
   
-  .product-image img {
+  .product-summer-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
   
-  .product-card:hover .product-image img {
+  .product-card:hover .product-summer-image img {
     transform: scale(1.05);
   }
   

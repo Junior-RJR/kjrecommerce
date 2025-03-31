@@ -98,8 +98,8 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   }
   
-  .discount-badge,
-  .stock-badge {
+  .discount-exclusive-badge,
+  .stock-exclusive-badge {
     position: absolute;
     padding: 6px 12px;
     border-radius: 4px;
@@ -108,33 +108,33 @@
     z-index: 1;
   }
   
-  .discount-badge {
+  .discount-exclusive-badge {
     top: 15px;
     left: 15px;
     background-color: #ff5252;
     color: white;
   }
   
-  .stock-badge {
+  .stock-exclusive-badge {
     top: 15px;
     right: 15px;
     background-color: #333;
     color: white;
   }
   
-  .product-image {
+  .product-exclusive-image {
     height: 250px;
     overflow: hidden;
   }
   
-  .product-image img {
+  .product-exclusive-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
   
-  .exclusive-product-card:hover .product-image img {
+  .exclusive-product-card:hover .product-exclusive-image img {
     transform: scale(1.05);
   }
   

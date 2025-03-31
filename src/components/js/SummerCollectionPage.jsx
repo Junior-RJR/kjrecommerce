@@ -217,7 +217,7 @@ function SummerCollectionPage() {
                 step="10"
                 value={filters.priceRange[1]}
                 onChange={(e) => handlePriceChange([filters.priceRange[0], Number.parseInt(e.target.value)])}
-                className="price-slider"
+                className="price-summer-slider"
               />
             </div>
 
@@ -264,9 +264,9 @@ function SummerCollectionPage() {
               <div className="products-grid">
                 {products.map((product) => (
                   <div key={product.id} className="product-card">
-                    {product.discount > 0 && <div className="discount-badge">-{product.discount}%</div>}
-                    {product.isNew && <div className="new-badge">Novo</div>}
-                    <div className="product-image">
+                    {product.discount > 0 && <div className="discount-summer-badge">-{product.discount}%</div>}
+                    {product.isNew && <div className="new-summer-badge">Novo</div>}
+                    <div className="product-summer-image">
                       <img src={product.image || "/placeholder.svg"} alt={product.name} />
                     </div>
                     <div className="product-info">
