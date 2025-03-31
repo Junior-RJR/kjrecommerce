@@ -1,4 +1,5 @@
 import { useState } from "react"
+import MapComponent from "./MapComponent";
 import "../css/ContactPage.css"
 
 function ContactPage() {
@@ -194,6 +195,7 @@ function ContactPage() {
           <h2 className="map-title">Nossa Localização</h2>
           <div className="map-placeholder">
             <p>Mapa será carregado aqui</p>
+            {/* <MapComponent /> */}
             {/* <p className="map-note">Utilize uma API de mapas como Google Maps para integrar um mapa real</p> */}
           </div>
         </div>

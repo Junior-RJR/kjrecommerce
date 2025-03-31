@@ -157,9 +157,10 @@ import logo from "../../images/logo.svg";
             </address>
           </div>
         </div>
-
         <div className="footer-bottom">
-          <p className="copyright">© {currentYear} KJR Ecommerce. Todos os direitos reservados.</p>
+          <p className="copyright">
+            © {currentYear} <a href="https://www.kjrdev.com.br" target="_blank" rel="noopener noreferrer">KJR Desenvolvimento</a>. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>
